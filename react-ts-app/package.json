@@ -11,7 +11,7 @@
     "test": "vitest",
     "precommit": "npm run lint && npm test",
     "format:fix": "prettier . --write",
-    "prepare": "cd .. && husky install react-ts-app/.husky"
+    "prepare": "cd .. && husky install .husky"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix"
