@@ -10,7 +10,11 @@
     "preview": "vite preview",
     "test": "vitest",
     "precommit": "npm run lint && npm test",
-    "format:fix": "prettier . --write"
+    "format:fix": "prettier . --write",
+    "prepare": "cd .. && husky install react-ts-app/.husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -35,12 +39,10 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "npm": "^10.2.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vitest": "^0.34.6"
-  },
-  "husky": {
-    "pre-commit": "npm run precommit"
   }
 }
