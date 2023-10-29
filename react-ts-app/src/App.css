@@ -1,0 +1,102 @@
+:root{
+    --blue: #4098FF;
+    --bg-card: #F5FDFF;
+    --bg-main:#E7F2FF;
+    --bg-top: #F4F2F2;
+    --white: #fafafa;
+    --black: #242424;
+
+    --border-rad-sm: 4px;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+
+}
+h1 {
+    color: var(--blue);
+
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+    line-height: 1.5em;
+    font-weight: 700;
+    text-align: center;
+}
+h2 {
+    color: var(--blue);
+
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    line-height: 1.5em;
+    font-weight: 700;
+
+}
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.sectionCards {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: var(--bg-main);
+}
+.grid {
+    margin: 0 10em;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 24px;
+
+    padding: 4em 0;
+}
+
+.cardItem {
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: var(--border-rad-sm)
+}
+.sectionSearch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 4em auto;
+
+}
+form {
+    display: flex;
+    gap: 0.5em;
+}
+.inputField {
+    width: 320px;
+    height: 40px;
+    border: 2px solid var(--blue);
+    border-radius: var(--border-rad-sm);
+
+    padding-left: 0.5em;
+}
+input[type='submit'] {
+    cursor: pointer;
+
+    width: 64px;
+    height: 40px;
+
+    color: var(--white);
+    background: var(--blue);
+    border: none;
+    border-radius: var(--border-rad-sm);
+
+    font-weight: 700;
+    text-transform: capitalize;
+
+}
+
+@media screen and (max-width: 1040px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
