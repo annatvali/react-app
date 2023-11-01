@@ -14,8 +14,8 @@ interface CardsState {
   result: ResultProps[];
 }
 
-class Cards extends Component<{}, CardsState> {
-  constructor(props: {}) {
+class Cards extends Component<NonNullable<unknown>, CardsState> {
+  constructor(props: NonNullable<unknown>) {
     super(props);
     this.state = {
       result: [],

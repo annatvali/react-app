@@ -6,8 +6,8 @@ interface SearchState {
   searchTerm: string;
 }
 
-class Search extends Component<{}, SearchState> {
-  constructor(props: {}) {
+class Search extends Component<NonNullable<unknown>, SearchState> {
+  constructor(props: NonNullable<unknown>) {
     super(props);
     this.state = {
       searchTerm: '',
