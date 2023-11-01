@@ -1,4 +1,4 @@
-import { ChangeEvent, Component, ReactElement } from 'react';
+import { ChangeEvent, Component, FormEvent, ReactElement } from 'react';
 
 interface SearchFormProps {
   term: string;
@@ -25,7 +25,8 @@ export default class SearchForm extends Component<
     }
   }
 
-  handleFormSubmit = (): void => {
+  handleFormSubmit = (e: FormEvent): void => {
+    e.preventDefault()
     this.props.onSearchFormSubmit(this.state.search.trim());
   };
 
