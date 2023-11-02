@@ -8,6 +8,7 @@ interface SearchFormProps {
 interface SearchFormState {
   search: string;
   hasError: boolean;
+  loading: boolean;
 }
 
 export default class SearchForm extends Component<
@@ -17,6 +18,7 @@ export default class SearchForm extends Component<
   state = {
     search: this.props.term,
     hasError: false,
+    loading: false
   };
 
   componentDidUpdate(): void {
@@ -26,8 +28,8 @@ export default class SearchForm extends Component<
   }
 
   handleFormSubmit = (e: FormEvent): void => {
-    e.preventDefault()
     this.props.onSearchFormSubmit(this.state.search.trim());
+    e.preventDefault();
   };
 
   handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -39,7 +41,6 @@ export default class SearchForm extends Component<
   };
 
   render(): ReactElement {
-    console.log('SearchForm');
     return (
       <form className="searchForm" onSubmit={this.handleFormSubmit}>
         <input

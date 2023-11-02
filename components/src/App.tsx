@@ -4,22 +4,25 @@ import { Planet } from './types';
 import Planets from './Planets';
 import { getAllPlanets } from './api/index';
 import './App.css';
+import LoaderImg from './Loader'
 
 
 interface AppState {
   planets: Planet[];
   term: string;
+  loading: boolean;
 }
 
 export default class App extends Component<unknown, AppState> {
   state = {
     planets: [],
     term: localStorage.getItem('term') ?? '',
+    loading: true
   };
 
   updatePlanets(): void {
     getAllPlanets(this.state.term).then((planets) => {
-      this.setState({ planets });
+      this.setState({ planets, loading: false });
     });
   }
 
@@ -45,7 +48,7 @@ export default class App extends Component<unknown, AppState> {
           term={this.state.term}
           onSearchFormSubmit={this.handleSearchFormSubmit}
         />
-        <Planets planets={this.state.planets} />
+        { this.state.loading ? <LoaderImg /> : <Planets planets={this.state.planets} /> }
       </Fragment>
     );
   }
