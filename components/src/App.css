@@ -1,0 +1,39 @@
+.searchForm {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.planets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.planetCard {
+  border: 1px solid black;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.planetView {
+  position: relative;
+}
+
+.planetImage {
+  width: 200px;
+  height: 200px;
+}
+
+.planetName {
+  position: absolute;
+  top: 0;
+  padding: 2px 6px;
+  color: white;
+  background-color: black;
+}
+
+.planetInfo {
+  padding: 6px 12px;
+  font-size: 12px;
+}
