@@ -3,17 +3,11 @@ import SearchForm from '../components/SearchForm';
 import { Planet } from '../types';
 import Planets from '../components/Planets';
 import { getAllPlanets } from '../api/index';
-import './App.css';
+import '../App.css';
 import LoaderImg from '../components/Loader';
 
 
-interface AppState {
-  planets: Planet[];
-  term: string;
-  loading: boolean;
-}
-
-const HomePage: React.FC<AppState> = () => {
+const Home = () => {
   const [planets, setPlanets] = useState<Planet[]>([]);
   const [term, setTerm] = useState<string>(localStorage.getItem('term') ?? '');
   const [loading, setLoading] = useState<boolean>(true);
@@ -46,4 +40,4 @@ const HomePage: React.FC<AppState> = () => {
   );
 };
 
-export default HomePage;
+export default Home;

@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
+import CSS from 'csstype';
+import ImgNotFound from '../assets/404.png';
 
-function NotFound() {
-    return (
-        <>
-            <h1>Error 404 - Page Not Fount</h1>
-            <Link to='/'>Back to Home</Link>
-        </>
-    )
+const NotFountStyle: CSS.Properties = {
+    position: 'absolute',
+    maxWidth: '100%'
+
 }
 
-export default NotFound;
+export default function NotFound() {
+    return <img src={ImgNotFound} style={NotFountStyle} alt='Page Not Found' />
+}
