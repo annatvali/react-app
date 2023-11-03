@@ -1,5 +1,5 @@
-import { Planet } from './types';
-import { getPlanetImage } from './api';
+import { Planet } from '../types';
+import { getPlanetImage } from '../api';
 
 interface PlanetCardProps {
   planet: Planet;

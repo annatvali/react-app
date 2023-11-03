@@ -8,7 +8,6 @@
     "build": "tsc && vite build",
     "format:fix": "npx prettier --write .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "pre-commit": "lint-staged",
     "prepare": "cd .. && husky install components/.husky",
     "preview": "vite preview",
     "test": "vitest"
