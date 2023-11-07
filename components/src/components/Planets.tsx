@@ -1,5 +1,6 @@
-import { Planet } from '../types';
-import { getPlanetImage } from '../api';
+import {  Planet } from '../types';
+import { getItemImage } from '../api';
+import TatooineImg from '../assets/Tatooine.webp'
 
 interface PlanetCardProps {
   planet: Planet;
@@ -10,10 +11,12 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
   return (
     <div className="planetCard">
       <div className="planetView">
-        <img className="planetImage" src={getPlanetImage(id)} />
-        <div className="planetName">{name}</div>
+        <div>
+          <img className="planetImage" src={id === '1' ? TatooineImg : getItemImage(id)} />
+        </div>
+        <div className="ItemName">{name}</div>
       </div>
-      <div className="planetInfo">
+      <div className="temInfo">
         <div>
           Diameter: {diameter}
           {diameter !== 'unknown' && 'km'}
@@ -31,8 +34,8 @@ interface PlanetsProps {
 const Planets: React.FC<PlanetsProps> = ({ planets }) => {
   return (
     <div className='planets'>
-      {planets.map((p) =>
-        <PlanetCard key={p.id} planet={p} /> )}
+      {planets.map((planet) =>
+        <PlanetCard key={planet.id} planet={planet} /> )}
     </div>
   )
 }

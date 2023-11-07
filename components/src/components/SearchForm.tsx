@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 
+
 interface SearchFormProps {
   term: string;
-  onSearchFormSubmit: (search: string) => void;
+  onFormSubmit: (search: string) => void;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({term, onSearchFormSubmit}) => {
+const SearchForm: React.FC<SearchFormProps> = ({term, onFormSubmit}) => {
   const [search, setSearch] = useState(term);
   const [hasError, setHasError] = useState(false);
 
   const handleFormSubmit = (e: React.FormEvent) => {
-    onSearchFormSubmit(search.trim());
+    onFormSubmit(search.trim());
     e.preventDefault();
   }
 
@@ -35,8 +36,8 @@ const SearchForm: React.FC<SearchFormProps> = ({term, onSearchFormSubmit}) => {
         value={search}
         onChange={handleInputChange}
       />
-      <button>Search</button>
-      <button type="button" onClick={handleErrorBtnClick}>
+      <button className="btnSearch">Search</button>
+      <button className="btnError" type="button" onClick={handleErrorBtnClick}>
         Error
       </button>
     </form>

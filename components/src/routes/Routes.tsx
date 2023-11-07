@@ -1,36 +1,45 @@
-import {createBrowserRouter, Link } from 'react-router-dom';
+import {BrowserRouter, Routes, Route,Outlet} from 'react-router-dom';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
+import Characters from '../pages/Characters';
+import '../pages/Characters';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+// import ItemDetails from '../components/ItemDetails';
 
 
-const router = createBrowserRouter([
-   {
-    path: "/",
-    element: (
-      <div>
-        <h1>Planets</h1>
-        <Home />
-      </div>
-    ),
-  },
-  {
-    path: "characters",
-    element: (
-      <div>
-        <h1>Characters</h1>
-        <Link to="/">Back to Planets</Link>
-      </div>
-    ),
-  },
-  {
-    path: "*",
-    element: (
+export default function Router() {
+
+  const Layout = () => {
+    return (
       <>
-        <Link to="/" style={{position: 'absolute', color: 'white', fontSize: '28px', zIndex: '1', padding: '24px'}}>Back to Planets</Link>
-        <NotFound />
+        <Header />
+        <Outlet />
+        <Footer />
       </>
-    ),
-  },
-])
+    )
+  }
 
-export default router;
+  const BrowserRoutes = () => {
+    return (
+      <>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout />} >
+              <Route path='/' element={<Home />} />
+              <Route path='characters' element={<Characters />} />
+              {/* <Route path='/details' element={<ItemDetails /> } /> */}
+              <Route path='*' element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </>
+    )
+  }
+
+  return(
+    <BrowserRoutes />
+  )
+
+}
+

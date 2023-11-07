@@ -18,12 +18,12 @@ const transformPlanet = (planet: PlanetBase): Planet => {
   return { ...planet, id };
 };
 
-export const getAllPlanets = async (term: string): Promise<Planet[]> => {
+export const getAllItems = async (term: string): Promise<Planet[]> => {
   const response = await makeRequest(`/planets/?search=${term}`);
   const planets: PlanetBase[] = response.results;
   return planets.map(transformPlanet);
 };
 
-export const getPlanetImage = (id: string): string => {
+export const getItemImage = (id: string): string => {
   return `${IMAGE_API_BASE}/planets/${id}.jpg`;
 };
